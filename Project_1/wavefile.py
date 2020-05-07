@@ -28,6 +28,7 @@ counter = 0
 timestampslist = []
 copyOfTimestampslist = timestampslist
 timestampslist.append(0)
+sd.default.device = 'UMC404HD 192k: USB Audio (hw:1,0)'
 
 ##makes a list with the note lengths
 for notes in range(0, numberOfNotes):

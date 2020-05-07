@@ -1,3 +1,5 @@
+## this is a script that makes the looper work on your pc on linux
+## there is no stop button programmed so you will have to stop with ctrl + shift + c
 import sounddevice as sd
 from scipy.io.wavfile import write
 import soundfile as sf
@@ -6,19 +8,19 @@ import time
 import random
 
 fs = 44100  # Sample rate
-seconds = 2  # Duration of recording
-sleep(1)
+seconds = 3  # Duration of recording
+
 myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
 sd.wait()  # Wait until recording is finished
 write('output.wav', fs, myrecording)  # Save as WAV file
 
 
-#makes all the variables
 global bpm
 filename = 'output.wav'
+# Extract data and sampling rate from file
 data, fs = sf.read(filename, dtype='float32')
-bpm = 90
-numberOfNotes = 8
+bpm = int(input("whats the bpm -->"))
+numberOfNotes = int(input("how many notes do you want to hear in your sequence"))
 quarterNoteDuration = 60 / bpm
 sixteenthNoteDuration = quarterNoteDuration / 4
 timestamps = []
